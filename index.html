@@ -275,6 +275,7 @@
         gap: 1rem;
         max-width: 640px;
         margin: 0 auto;
+        align-items: stretch;
       }
 
       @media (min-width: 560px) {
@@ -288,6 +289,9 @@
         border: 1px solid var(--border);
         border-radius: 16px;
         padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
       }
 
       .card h3 {
@@ -302,14 +306,24 @@
       }
 
       .card ul {
-        margin: 0 0 1.25rem;
+        margin: 0 0 1rem;
         padding-left: 1.1rem;
         color: var(--muted);
         font-size: 0.9375rem;
+        flex: 1 1 auto;
       }
 
       .card li {
         margin-bottom: 0.35rem;
+      }
+
+      .card li:last-child {
+        margin-bottom: 0;
+      }
+
+      .card > .btn {
+        margin-top: auto;
+        width: 100%;
       }
 
       .trust {
@@ -517,20 +531,21 @@
             <h3>Free</h3>
             <p class="price">$0</p>
             <ul>
-              <li>3 AI replies per hour (per store listing)</li>
-              <li>Core features included</li>
+              <li>Up to 3 AI replies per hour on the free tier</li>
+              <li>Reply on Reddit from your logged-in browser session</li>
               <li>No card required</li>
             </ul>
-            <a class="btn btn-primary js-store-link" href="#" style="width: 100%">Get started</a>
+            <a class="btn btn-primary js-store-link" href="#">Get started</a>
           </div>
           <div class="card">
             <h3>Pro</h3>
             <p class="price">$10 <small style="font-size: 0.55em; font-weight: 500">lifetime</small></p>
             <ul>
-              <li>100 AI replies per hour</li>
-              <li>Priority model (per listing)</li>
+              <li>Up to 100 AI replies per hour</li>
+              <li>Priority AI model for faster, higher-quality replies</li>
+              <li>One-time upgrade — details on the Chrome Web Store</li>
             </ul>
-            <a class="btn btn-primary js-store-link" href="#" style="width: 100%">Add to Chrome</a>
+            <a class="btn btn-primary js-store-link" href="#">Add to Chrome</a>
           </div>
         </div>
       </section>
