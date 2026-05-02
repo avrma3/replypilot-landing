@@ -60,45 +60,16 @@
       .wrap {
         position: relative;
         z-index: 1;
-        max-width: 1104px;
+        max-width: 1080px;
         margin: 0 auto;
-        padding: 1rem 1rem 2rem;
-      }
-
-      @media (min-width: 768px) {
-        .wrap {
-          padding: 1.35rem 1.35rem 2.5rem;
-        }
-      }
-
-      .page-card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 24px;
-        overflow: hidden;
         padding: 0 1.25rem;
-        box-shadow:
-          0 0 0 1px rgba(255, 255, 255, 0.04) inset,
-          0 24px 72px rgba(0, 0, 0, 0.45);
-      }
-
-      @media (min-width: 768px) {
-        .page-card {
-          padding: 0 1.75rem;
-        }
       }
 
       header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1.35rem 0 1.15rem;
-      }
-
-      header .btn {
-        padding: 0.62rem 1.05rem;
-        font-size: 0.875rem;
-        border-radius: 10px;
+        padding: 1.25rem 0;
       }
 
       .logo {
@@ -123,8 +94,8 @@
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        padding: 0.75rem 1.35rem;
-        border-radius: 12px;
+        padding: 0.75rem 1.25rem;
+        border-radius: 10px;
         font-weight: 600;
         font-size: 0.9375rem;
         text-decoration: none;
@@ -139,16 +110,12 @@
       .btn-primary {
         background: linear-gradient(180deg, var(--accent) 0%, var(--accent-dim) 100%);
         color: #fff;
-        box-shadow:
-          0 4px 28px var(--glow),
-          0 0 22px rgba(255, 69, 0, 0.35);
+        box-shadow: 0 4px 24px var(--glow);
       }
 
       .btn-primary:hover {
         transform: translateY(-1px);
-        box-shadow:
-          0 8px 36px var(--glow),
-          0 0 28px rgba(255, 69, 0, 0.45);
+        box-shadow: 0 8px 32px var(--glow);
       }
 
       .btn-ghost {
@@ -162,13 +129,13 @@
       }
 
       .hero {
-        padding: 3.25rem 0 4.25rem;
+        padding: 3rem 0 4rem;
         text-align: center;
       }
 
       @media (min-width: 768px) {
         .hero {
-          padding: 4.75rem 0 5.25rem;
+          padding: 4.5rem 0 5rem;
         }
       }
 
@@ -233,20 +200,20 @@
         gap: 1rem;
       }
 
-      @media (min-width: 480px) and (max-width: 767px) {
+      @media (min-width: 640px) {
         .steps {
           grid-template-columns: repeat(2, 1fr);
         }
       }
 
-      @media (min-width: 768px) {
+      @media (min-width: 900px) {
         .steps {
           grid-template-columns: repeat(4, 1fr);
         }
       }
 
       .step {
-        background: rgba(0, 0, 0, 0.22);
+        background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 14px;
         padding: 1.25rem;
@@ -308,19 +275,24 @@
         gap: 1rem;
         max-width: 640px;
         margin: 0 auto;
+        align-items: stretch;
       }
 
       @media (min-width: 560px) {
         .pricing {
           grid-template-columns: 1fr 1fr;
+          align-items: stretch;
         }
       }
 
       .card {
-        background: rgba(0, 0, 0, 0.22);
+        background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 16px;
         padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
       }
 
       .card h3 {
@@ -335,7 +307,7 @@
       }
 
       .card ul {
-        margin: 0 0 1.25rem;
+        margin: 0;
         padding-left: 1.1rem;
         color: var(--muted);
         font-size: 0.9375rem;
@@ -343,6 +315,15 @@
 
       .card li {
         margin-bottom: 0.35rem;
+      }
+
+      .card li:last-child {
+        margin-bottom: 0;
+      }
+
+      .card > .btn {
+        margin-top: auto;
+        width: 100%;
       }
 
       .trust {
@@ -354,17 +335,11 @@
       }
 
       .site-footer {
-        margin: 0 -1.25rem;
-        padding: 2.75rem 1.25rem 2rem;
+        margin-top: 2rem;
         border-top: 1px solid var(--border);
-        background: rgba(0, 0, 0, 0.2);
-      }
-
-      @media (min-width: 768px) {
-        .site-footer {
-          margin: 0 -1.75rem;
-          padding: 2.75rem 1.75rem 2rem;
-        }
+        padding: 3rem 0 2rem;
+        background: linear-gradient(180deg, transparent 0%, rgba(20, 22, 28, 0.5) 40%, var(--surface) 100%);
+        border-radius: 20px 20px 0 0;
       }
 
       .footer-grid {
@@ -480,7 +455,6 @@
   <body>
     <div class="bg-grid" aria-hidden="true"></div>
     <div class="wrap" id="top">
-      <div class="page-card">
       <header>
         <div class="logo"><span aria-hidden="true"></span> ReplyPilot</div>
         <a class="btn btn-primary js-store-link" href="#">Add to Chrome</a>
@@ -561,7 +535,7 @@
               <li>Core features included</li>
               <li>No card required</li>
             </ul>
-            <a class="btn btn-primary js-store-link" href="#" style="width: 100%">Get started</a>
+            <a class="btn btn-primary js-store-link" href="#">Get started</a>
           </div>
           <div class="card">
             <h3>Pro</h3>
@@ -570,7 +544,7 @@
               <li>100 AI replies per hour</li>
               <li>Priority model (per listing)</li>
             </ul>
-            <a class="btn btn-primary js-store-link" href="#" style="width: 100%">Add to Chrome</a>
+            <a class="btn btn-primary js-store-link" href="#">Add to Chrome</a>
           </div>
         </div>
       </section>
@@ -624,14 +598,14 @@
           </p>
         </div>
       </footer>
-      </div>
     </div>
 
     <script>
       (function () {
-        // ▼▼▼ Yahan sirf yeh ek link badlo — saari CTAs isi URL par chali jayengi ▼▼▼
+        // Saari "Add to Chrome" buttons isi URL par — yahan badlo agar zarurat ho
         var CHROME_WEB_STORE_URL =
-          "https://chromewebstore.google.com/detail/replypilot-ai-auto-reply/baoghmmjfjalapiohfibaebgmcjabbel?hl=en-US&utm_source=replypilot_landing&utm_medium=website&utm_campaign=install";
+          "https://chromewebstore.google.com/detail/replypilot-ai-auto-reply/baoghmmjfjalapiohfibaebgmcjabbel?hl=en-US&utm_source=ext_sidebar";
+
         document.querySelectorAll(".js-store-link").forEach(function (el) {
           el.href = CHROME_WEB_STORE_URL;
           el.setAttribute("rel", "noopener noreferrer");
