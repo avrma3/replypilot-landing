@@ -275,11 +275,13 @@
         gap: 1rem;
         max-width: 640px;
         margin: 0 auto;
+        align-items: stretch;
       }
 
       @media (min-width: 560px) {
         .pricing {
           grid-template-columns: 1fr 1fr;
+          align-items: stretch;
         }
       }
 
@@ -288,6 +290,9 @@
         border: 1px solid var(--border);
         border-radius: 16px;
         padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
       }
 
       .card h3 {
@@ -302,7 +307,7 @@
       }
 
       .card ul {
-        margin: 0 0 1.25rem;
+        margin: 0;
         padding-left: 1.1rem;
         color: var(--muted);
         font-size: 0.9375rem;
@@ -310,6 +315,15 @@
 
       .card li {
         margin-bottom: 0.35rem;
+      }
+
+      .card li:last-child {
+        margin-bottom: 0;
+      }
+
+      .card > .btn {
+        margin-top: auto;
+        width: 100%;
       }
 
       .trust {
@@ -521,7 +535,7 @@
               <li>Core features included</li>
               <li>No card required</li>
             </ul>
-            <a class="btn btn-primary js-store-link" href="#" style="width: 100%">Get started</a>
+            <a class="btn btn-primary js-store-link" href="#">Get started</a>
           </div>
           <div class="card">
             <h3>Pro</h3>
@@ -530,7 +544,7 @@
               <li>100 AI replies per hour</li>
               <li>Priority model (per listing)</li>
             </ul>
-            <a class="btn btn-primary js-store-link" href="#" style="width: 100%">Add to Chrome</a>
+            <a class="btn btn-primary js-store-link" href="#">Add to Chrome</a>
           </div>
         </div>
       </section>
@@ -588,8 +602,7 @@
 
     <script>
       (function () {
-        // Bio / posts par jo link doge = apni HOSTED landing ka https URL (Netlify, Vercel, etc.).
-        // Neeche wali URL sirf in-page "Add to Chrome" buttons ke liye hai; ise khulne se Chrome Web Store khulta hai, landing nahi.
+        // Saari "Add to Chrome" buttons isi URL par — yahan badlo agar zarurat ho
         var CHROME_WEB_STORE_URL =
           "https://chromewebstore.google.com/detail/replypilot-ai-auto-reply/baoghmmjfjalapiohfibaebgmcjabbel?hl=en-US&utm_source=ext_sidebar";
 
