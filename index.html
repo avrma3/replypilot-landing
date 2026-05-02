@@ -128,11 +128,6 @@
         background: rgba(255, 255, 255, 0.05);
       }
 
-      header .btn-primary {
-        padding: 0.6rem 1.05rem;
-        font-size: 0.875rem;
-      }
-
       .hero {
         padding: 3rem 0 4rem;
         text-align: center;
@@ -227,7 +222,7 @@
       .step strong {
         display: block;
         font-size: 0.75rem;
-        font-weight: 600;
+        text-transform: uppercase;
         letter-spacing: 0.06em;
         color: var(--accent);
         margin-bottom: 0.5rem;
@@ -325,23 +320,127 @@
         font-size: 0.9375rem;
       }
 
-      footer {
-        padding: 2.5rem 0 3rem;
-        text-align: center;
+      .site-footer {
+        margin-top: 2rem;
         border-top: 1px solid var(--border);
-        margin-top: 1rem;
+        padding: 3rem 0 2rem;
+        background: linear-gradient(180deg, transparent 0%, rgba(20, 22, 28, 0.5) 40%, var(--surface) 100%);
+        border-radius: 20px 20px 0 0;
       }
 
-      footer p {
-        margin: 0 0 1rem;
+      .footer-grid {
+        display: grid;
+        gap: 2.25rem;
+        margin-bottom: 2.5rem;
+      }
+
+      @media (min-width: 700px) {
+        .footer-grid {
+          grid-template-columns: 1.2fr 1fr 1fr;
+          gap: 2rem;
+          align-items: start;
+        }
+      }
+
+      .footer-brand .logo {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-brand p {
+        margin: 0;
         color: var(--muted);
-        font-size: 0.875rem;
+        font-size: 0.9375rem;
+        max-width: 28ch;
+        line-height: 1.55;
+      }
+
+      .footer-col h4 {
+        margin: 0 0 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+
+      .footer-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.65rem;
+      }
+
+      .footer-links a {
+        color: var(--text);
+        text-decoration: none;
+        font-size: 0.9375rem;
+        font-weight: 500;
+        transition: color 0.15s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+      }
+
+      .footer-cta-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+      }
+
+      @media (min-width: 700px) {
+        .footer-cta-wrap {
+          margin-top: 0;
+        }
+      }
+
+      .footer-bottom {
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      @media (min-width: 640px) {
+        .footer-bottom {
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+        }
+      }
+
+      .footer-bottom p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.8125rem;
+        line-height: 1.5;
+      }
+
+      .footer-bottom .copy {
+        order: 2;
+      }
+
+      @media (min-width: 640px) {
+        .footer-bottom .copy {
+          order: 0;
+        }
+      }
+
+      .footer-disclaimer {
+        max-width: 52ch;
       }
     </style>
   </head>
   <body>
     <div class="bg-grid" aria-hidden="true"></div>
-    <div class="wrap">
+    <div class="wrap" id="top">
       <header>
         <div class="logo"><span aria-hidden="true"></span> ReplyPilot</div>
         <a class="btn btn-primary js-store-link" href="#">Add to Chrome</a>
@@ -367,22 +466,22 @@
         <h2>How it works</h2>
         <div class="steps">
           <article class="step">
-            <strong>STEP 1</strong>
+            <strong>Step 1</strong>
             <h3>Choose subreddits</h3>
             <p>Focus on the communities you care about.</p>
           </article>
           <article class="step">
-            <strong>STEP 2</strong>
+            <strong>Step 2</strong>
             <h3>Set frequency</h3>
             <p>Control how often replies run — hourly, daily, your pace.</p>
           </article>
           <article class="step">
-            <strong>STEP 3</strong>
+            <strong>Step 3</strong>
             <h3>Start</h3>
             <p>Click start and let it work in the background.</p>
           </article>
           <article class="step">
-            <strong>STEP 4</strong>
+            <strong>Step 4</strong>
             <h3>Review activity</h3>
             <p>Use the activity log to see what was posted.</p>
           </article>
@@ -443,17 +542,56 @@
         </p>
       </section>
 
-      <footer>
-        <p>© ReplyPilot — landing page. Product offered on Chrome Web Store.</p>
-        <a class="btn btn-primary js-store-link" href="#">Open in Chrome Web Store</a>
+      <footer class="site-footer">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="logo"><span aria-hidden="true"></span> ReplyPilot</div>
+            <p>
+              AI-assisted replies for Reddit. Install from the Chrome Web Store and stay active without
+              living in the feed.
+            </p>
+            <div class="footer-cta-wrap">
+              <a class="btn btn-primary js-store-link" href="#">Add to Chrome</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>On this page</h4>
+            <ul class="footer-links">
+              <li><a href="#how-it-works">How it works</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#top">Back to top</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul class="footer-links">
+              <li><a class="js-store-link" href="#">Chrome Web Store</a></li>
+              <li>
+                <a
+                  href="https://reddit-autoreply-production.up.railway.app/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Privacy policy</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="copy">© 2026 ReplyPilot. Third-party extension — see listing for publisher details.</p>
+          <p class="footer-disclaimer">
+            Not affiliated with Reddit, Inc. Use Reddit in line with their terms and community rules.
+          </p>
+        </div>
       </footer>
     </div>
 
     <script>
       (function () {
-        // ▼▼▼ Yahan sirf yeh ek link badlo — saari CTAs isi URL par chali jayengi ▼▼▼
+        // Bio / posts par jo link doge = apni HOSTED landing ka https URL (Netlify, Vercel, etc.).
+        // Neeche wali URL sirf in-page "Add to Chrome" buttons ke liye hai; ise khulne se Chrome Web Store khulta hai, landing nahi.
         var CHROME_WEB_STORE_URL =
-          "https://chromewebstore.google.com/detail/replypilot-ai-auto-reply/baoghmmjfjalapiohfibaebgmcjabbel?hl=en-US&utm_source=replypilot_landing&utm_medium=website&utm_campaign=install";
+          "https://chromewebstore.google.com/detail/replypilot-ai-auto-reply/baoghmmjfjalapiohfibaebgmcjabbel?hl=en-US&utm_source=ext_sidebar";
 
         document.querySelectorAll(".js-store-link").forEach(function (el) {
           el.href = CHROME_WEB_STORE_URL;
