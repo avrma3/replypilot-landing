@@ -60,16 +60,45 @@
       .wrap {
         position: relative;
         z-index: 1;
-        max-width: 1080px;
+        max-width: 1104px;
         margin: 0 auto;
+        padding: 1rem 1rem 2rem;
+      }
+
+      @media (min-width: 768px) {
+        .wrap {
+          padding: 1.35rem 1.35rem 2.5rem;
+        }
+      }
+
+      .page-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        overflow: hidden;
         padding: 0 1.25rem;
+        box-shadow:
+          0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+          0 24px 72px rgba(0, 0, 0, 0.45);
+      }
+
+      @media (min-width: 768px) {
+        .page-card {
+          padding: 0 1.75rem;
+        }
       }
 
       header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 1.25rem 0;
+        padding: 1.35rem 0 1.15rem;
+      }
+
+      header .btn {
+        padding: 0.62rem 1.05rem;
+        font-size: 0.875rem;
+        border-radius: 10px;
       }
 
       .logo {
@@ -94,8 +123,8 @@
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        padding: 0.75rem 1.25rem;
-        border-radius: 10px;
+        padding: 0.75rem 1.35rem;
+        border-radius: 12px;
         font-weight: 600;
         font-size: 0.9375rem;
         text-decoration: none;
@@ -110,12 +139,16 @@
       .btn-primary {
         background: linear-gradient(180deg, var(--accent) 0%, var(--accent-dim) 100%);
         color: #fff;
-        box-shadow: 0 4px 24px var(--glow);
+        box-shadow:
+          0 4px 28px var(--glow),
+          0 0 22px rgba(255, 69, 0, 0.35);
       }
 
       .btn-primary:hover {
         transform: translateY(-1px);
-        box-shadow: 0 8px 32px var(--glow);
+        box-shadow:
+          0 8px 36px var(--glow),
+          0 0 28px rgba(255, 69, 0, 0.45);
       }
 
       .btn-ghost {
@@ -129,13 +162,13 @@
       }
 
       .hero {
-        padding: 3rem 0 4rem;
+        padding: 3.25rem 0 4.25rem;
         text-align: center;
       }
 
       @media (min-width: 768px) {
         .hero {
-          padding: 4.5rem 0 5rem;
+          padding: 4.75rem 0 5.25rem;
         }
       }
 
@@ -200,20 +233,20 @@
         gap: 1rem;
       }
 
-      @media (min-width: 640px) {
+      @media (min-width: 480px) and (max-width: 767px) {
         .steps {
           grid-template-columns: repeat(2, 1fr);
         }
       }
 
-      @media (min-width: 900px) {
+      @media (min-width: 768px) {
         .steps {
           grid-template-columns: repeat(4, 1fr);
         }
       }
 
       .step {
-        background: var(--surface);
+        background: rgba(0, 0, 0, 0.22);
         border: 1px solid var(--border);
         border-radius: 14px;
         padding: 1.25rem;
@@ -284,7 +317,7 @@
       }
 
       .card {
-        background: var(--surface);
+        background: rgba(0, 0, 0, 0.22);
         border: 1px solid var(--border);
         border-radius: 16px;
         padding: 1.5rem;
@@ -321,11 +354,17 @@
       }
 
       .site-footer {
-        margin-top: 2rem;
+        margin: 0 -1.25rem;
+        padding: 2.75rem 1.25rem 2rem;
         border-top: 1px solid var(--border);
-        padding: 3rem 0 2rem;
-        background: linear-gradient(180deg, transparent 0%, rgba(20, 22, 28, 0.5) 40%, var(--surface) 100%);
-        border-radius: 20px 20px 0 0;
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      @media (min-width: 768px) {
+        .site-footer {
+          margin: 0 -1.75rem;
+          padding: 2.75rem 1.75rem 2rem;
+        }
       }
 
       .footer-grid {
@@ -441,6 +480,7 @@
   <body>
     <div class="bg-grid" aria-hidden="true"></div>
     <div class="wrap" id="top">
+      <div class="page-card">
       <header>
         <div class="logo"><span aria-hidden="true"></span> ReplyPilot</div>
         <a class="btn btn-primary js-store-link" href="#">Add to Chrome</a>
@@ -584,6 +624,7 @@
           </p>
         </div>
       </footer>
+      </div>
     </div>
 
     <script>
