@@ -25,9 +25,7 @@ if ($LASTEXITCODE -ne 0) {
 
 Set-Location $Root
 
-$hasRemote = $false
-git remote get-url origin 2>$null | Out-Null
-if ($LASTEXITCODE -eq 0) { $hasRemote = $true }
+$hasRemote = (@(git remote 2>$null) -contains 'origin')
 
 if (-not $hasRemote) {
   Write-Host "Creating repo $RepoName and pushing..." -ForegroundColor Green
@@ -47,7 +45,7 @@ Write-Host "Enabling GitHub Pages (main / root)..." -ForegroundColor Green
 $src = '{"source":{"branch":"main","path":"/"}}'
 $src | & $gh api "repos/$userRepo/pages" -X POST --input - 2>&1 | Out-Host
 if ($LASTEXITCODE -ne 0) {
-  Write-Host "(Pages API skip — ho sakta hai pehle se on ho, ya manually kholna pade)" -ForegroundColor DarkYellow
+  Write-Host "(Pages API skip - ho sakta hai pehle se on ho, ya manually)" -ForegroundColor DarkYellow
 }
 
 $owner, $name = $userRepo -split "/", 2
@@ -55,6 +53,6 @@ $pagesUrl = "https://${owner}.github.io/${name}/"
 
 Write-Host ""
 Write-Host "Done. Repo: https://github.com/$userRepo" -ForegroundColor Cyan
-Write-Host "Landing URL (1–3 min baad try karo): $pagesUrl" -ForegroundColor Cyan
+Write-Host "Landing URL (1-3 min baad try karo): $pagesUrl" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "Agar site na khule: GitHub repo -> Settings -> Pages -> Build: Deploy from branch -> main, / (root)" -ForegroundColor Yellow
