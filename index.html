@@ -629,11 +629,9 @@
 
     <script>
       (function () {
-        // Bio / posts par jo link doge = apni HOSTED landing ka https URL (Netlify, Vercel, etc.).
-        // Neeche wali URL sirf in-page "Add to Chrome" buttons ke liye hai; ise khulne se Chrome Web Store khulta hai, landing nahi.
+        // ▼▼▼ Yahan sirf yeh ek link badlo — saari CTAs isi URL par chali jayengi ▼▼▼
         var CHROME_WEB_STORE_URL =
-          "https://chromewebstore.google.com/detail/replypilot-ai-auto-reply/baoghmmjfjalapiohfibaebgmcjabbel?hl=en-US&utm_source=ext_sidebar";
-
+          "https://chromewebstore.google.com/detail/replypilot-ai-auto-reply/baoghmmjfjalapiohfibaebgmcjabbel?hl=en-US&utm_source=replypilot_landing&utm_medium=website&utm_campaign=install";
         document.querySelectorAll(".js-store-link").forEach(function (el) {
           el.href = CHROME_WEB_STORE_URL;
           el.setAttribute("rel", "noopener noreferrer");
